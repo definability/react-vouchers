@@ -3,7 +3,9 @@
   "version": "0.0.1",
   "description": "Simple ReactJS+Redux SPA",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "webpack",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch": "NODE_ENV=development webpack-dev-server -w -d --output-public-path=/build/"
   },
   "repository": {
     "type": "git",
