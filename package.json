@@ -34,12 +34,19 @@
     "eslint-plugin-jsx-a11y": "^4.0.0",
     "eslint-plugin-react": "^6.10.3",
     "extract-text-webpack-plugin": "^2.1.0",
+    "ignore-styles": "^5.0.1",
+    "jsdom": "^10.1.0",
+    "jsdom-global": "^3.0.2",
+    "mocha": "^3.4.1",
+    "mocha-webpack": "^0.7.0",
     "node-sass": "^4.5.3",
     "postcss-loader": "^2.0.5",
     "sass-loader": "^6.0.5",
+    "should": "^11.2.1",
     "style-loader": "^0.17.0",
     "webpack": "^2.3.2",
-    "webpack-dev-server": "^2.4.2"
+    "webpack-dev-server": "^2.4.2",
+    "webpack-node-externals": "^1.6.0"
   },
   "dependencies": {
     "history": "^3.0.0",
