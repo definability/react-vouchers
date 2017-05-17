@@ -1,0 +1,10 @@
+--colors
+--webpack-config webpack.config-test.js
+
+--require should
+
+--require ignore-styles
+--require babel-core/register
+--require jsdom-global/register
+
+tests/**/*.jsx
