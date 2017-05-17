@@ -8,18 +8,22 @@ const Container = () => <div />;
 const Home = () => <div />;
 const Table = () => <div />;
 
-const Application = () => (
-  <Router history={hashHistory}>
-    <Route path="/" component={Container}>
-      <IndexRoute
-        component={Home}
-      />
-      <Route
-        path="/details"
-        component={Table}
-      />
-    </Route>
-  </Router>
-);
+class Application extends React.Component {
+  render() {
+    return (
+      <Router history={hashHistory}>
+        <Route path="/" component={Container}>
+          <IndexRoute
+            component={Home}
+          />
+          <Route
+            path="/details"
+            component={Table}
+          />
+        </Route>
+      </Router>
+    );
+  }
+}
 
 export default Application;
