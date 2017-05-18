@@ -4,9 +4,9 @@ import { IndexRoute, Route, Router, hashHistory } from 'react-router';
 
 import '../styles/main.scss';
 
-const Container = () => <div />;
-const Home = () => <div />;
-const Table = () => <div />;
+import Home from './Home';
+import Container from './Container';
+import Detailed from './Detailed';
 
 class Application extends React.Component {
   render() {
@@ -18,7 +18,7 @@ class Application extends React.Component {
           />
           <Route
             path="/details"
-            component={Table}
+            component={Detailed}
           />
         </Route>
       </Router>
