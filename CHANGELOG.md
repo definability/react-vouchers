@@ -10,3 +10,4 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - `Component`s with `Router`.
 - `Reducer dummy.
 - Unit tests.
+- Travis-CI configuration file.
