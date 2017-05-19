@@ -16,4 +16,4 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Unit tests.
 - Travis-CI configuration file.
 
-[Unreleased]: /../compare/v0.1.0...HEAD
+[Unreleased]: https://github.com/char-lie/react-vouchers/compare/v0.1.0...HEAD
