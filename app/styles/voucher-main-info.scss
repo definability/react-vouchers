@@ -1,0 +1,94 @@
+button {
+  cursor: pointer;
+  &:disabled {
+    cursor: default;
+  }
+}
+
+.voucher-main-info {
+  img {
+    cursor: pointer;
+    display: inline-block;
+    vertical-align: top;
+  }
+}
+
+.main-info-container {
+  width: 256px;
+}
+
+.face-value {
+  padding-right: 63px;
+  text-align: right;
+}
+
+.asking-price {
+  padding-left: 0;
+  text-align: left;
+}
+
+.main-info-entry {
+  font-size: 12px;
+  vertical-align: top;
+  display: inline-block;
+  margin-left: 10px;
+  p {
+    overflow: hidden;
+    margin-top: 4px;
+    margin-bottom: 6px;
+    strong {
+      color: #9a9a9a;
+      font-weight: normal;
+    }
+  }
+}
+
+.buttons-container {
+  width: 260px;
+  button {
+    border: 0;
+    color: white;
+    float: right;
+    height: 50px;
+    margin-left: 4px;
+    margin-right: 1px;
+    margin-top: 4px;
+    width: 68px;
+    &:disabled {
+      opacity: 0.5;
+    }
+    &.active {
+      background-color: #1cadeb;
+    }
+    &.decline {
+      background-color: #f75168;
+    }
+  }
+}
+
+textarea {
+  width: 253px;
+  height: 70px;
+  padding: 2px;
+  margin-top: 3px;
+}
+
+button.edit {
+  $size: 20px;
+  background: url('edit.svg') no-repeat;
+  background-size: $size $size;
+  width: $size;
+  height: $size;
+  border: 0;
+}
+
+button.copy {
+  $width: 13px;
+  $height: 17px;
+  background-size: $width $height;
+  background: url('copy.svg') no-repeat;
+  border: 0;
+  height: $height;
+  position: absolute;
+  width: $width;
+}
