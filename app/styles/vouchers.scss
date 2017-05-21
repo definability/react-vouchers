@@ -1,0 +1,27 @@
+table {
+  margin: 0 auto;
+  font-size: 12px;
+  font-family: sans-serif;
+  thead {
+    background-color: #1cadeb;
+    font-size: 13px;
+    color: white;
+  }
+  td {
+    padding-top: 19px;
+    padding-left: 28px;
+    vertical-align: top;
+  }
+  tbody {
+    tr {
+      background-color: #f9f9f9;
+      &:hover {
+        background-color: white;
+      }
+    }
+  }
+  th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+  }
+}
