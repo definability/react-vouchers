@@ -50,6 +50,7 @@
     "webpack-node-externals": "^1.6.0"
   },
   "dependencies": {
+    "dateformat": "^2.0.0",
     "faker": "^4.1.0",
     "history": "^3.0.0",
     "prop-types": "^15.5.10",
