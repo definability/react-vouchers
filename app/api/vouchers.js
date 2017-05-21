@@ -4,7 +4,7 @@ let vouchers = [];
 
 function generateVoucher(index = Math.round(Math.random() * Number.MAX_SAFE_INTEGER)) {
   const isPaperVoucher = Math.random() < 0.5;
-  const faceValue = Math.round((Math.random() + 1) * 100);
+  const faceValue = Math.round((Math.random() + 1) * 10000);
   const askingPrice = Math.round(faceValue * (1.5 - Math.random()));
 
   return {
