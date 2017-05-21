@@ -32,25 +32,26 @@ class VoucherMainInfo extends Component {
     const basicDetails = (
       <MainInfoEntry
         items={{
-          [Symbol('brand')]: this.props.brand_name,
-          'S/N': this.props.serial_number.toString(),
-          CVV: this.props.paper_voucher ? null : this.props.cvv.toString(),
+          brand: { value: this.props.brand_name, copy: false },
+          'S/N': { value: this.props.serial_number.toString(), copy: true },
+          CVV: { value: this.props.paper_voucher ? null : this.props.cvv.toString(), copy: true },
         }}
       />
     );
     const moreDetails = !this.props.isOpen ? null : (
       <MainInfoEntry
         items={{
-          Created: dateformat(new Date(this.props.created), DATE_FORMAT),
-          ID: this.props.id,
+          Created: { value: dateformat(new Date(this.props.created), DATE_FORMAT), copy: false },
+          ID: { value: this.props.id, copy: true },
         }}
       />
     );
 
     return (
-      <td onClick={this.props.onClick}>
-        <div>
+      <td className="voucher-main-info">
+        <div className="main-info-container">
           <img
+            onClick={this.props.onClick}
             alt={this.props.brand_name}
             height="40px"
             src={this.props.brand_image_url}
