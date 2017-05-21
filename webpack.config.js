@@ -49,6 +49,9 @@ module.exports = {
           'postcss-loader',
         ]
       }),
+    }, {
+      test: /\.svg$/,
+      use: 'file-loader',
     }]
   },
   resolve: {
