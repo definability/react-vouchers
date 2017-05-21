@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ## [Unreleased]
 ### Added
 - Vouchers fetch function.
+- Vouchers table.
+- Vouchers accept and decline buttons.
+- Vouchers patch in `Reducer`.
 
 ## 0.0.1 - 2017-05-18
 ### Added
