@@ -4,7 +4,9 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
-## [Unreleased]
+## [0.0.3]
+- Added styles.
+- Added SVG buttons.
 
 ## [0.0.2]
 ### Added
@@ -21,5 +23,6 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Unit tests.
 - Travis-CI configuration file.
 
-[Unreleased]: https://github.com/char-lie/react-vouchers/compare/v0.0.2...HEAD
+[Unreleased]: https://github.com/char-lie/react-vouchers/compare/v0.0.3...HEAD
+[0.0.3]: https://github.com/char-lie/react-vouchers/compare/v0.0.3...v0.0.2
 [0.0.2]: https://github.com/char-lie/react-vouchers/compare/v0.0.1...v0.0.2
