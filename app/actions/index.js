@@ -25,3 +25,8 @@ export const setVoucherStatus = (id, status) => ({
   type: ACTIONS.EDIT_VOUCHER,
   payload: { id, status },
 });
+
+export const editVoucherNotes = (id, notes) => ({
+  type: ACTIONS.EDIT_VOUCHER,
+  payload: { id, notes },
+});
