@@ -8,7 +8,7 @@ function generateVoucher(index = Math.round(Math.random() * Number.MAX_SAFE_INTE
   const askingPrice = Math.round(faceValue * (1.5 - Math.random()));
 
   return {
-    brand_image_url: faker.image.imageUrl(50, 50),
+    brand_image_url: `${faker.image.imageUrl(40, 40)}?${index}`,
     brand_name: faker.company.companyName(),
     serial_number: Number.parseInt(faker.finance.account(), 10),
     cvv: isPaperVoucher ? null : Number.parseInt(faker.finance.account(), 10),
