@@ -46,12 +46,40 @@ class Voucher extends Component {
     };
   }
 
+  constructor(props) {
+    super(props);
+
+    this.getButtons = this.getButtons.bind(this);
+    this.getDisabledButton = this.getDisabledButton.bind(this);
+  }
+
   getButtons() {
     return (
       <div>
-        <button onClick={e => this.setVoucherStatus(e, true)}>Approve</button>
-        <button onClick={e => this.setVoucherStatus(e, false)}>Decline</button>
+        <button
+          onClick={e => this.setVoucherStatus(e, true)}
+          className="active"
+        >
+          Approve
+        </button>
+        <button
+          onClick={e => this.setVoucherStatus(e, false)}
+          className="decline"
+        >
+          Decline
+        </button>
       </div>
+    );
+  }
+
+  getDisabledButton() {
+    return (
+      <button
+        className={this.props.status.toLowerCase()}
+        disabled
+      >
+        {this.props.status}
+      </button>
     );
   }
 
@@ -76,12 +104,12 @@ class Voucher extends Component {
           onClick={this.props.onClick}
         />
         <td>
-          Edit
+          <button className="edit" />
         </td>
-        <td>
+        <td className="face-value">
           {this.props.face_value / 100}{currencySign}
         </td>
-        <td>
+        <td className="asking-price">
           <div>
             {this.props.asking_price / 100}{currencySign}
           </div>
@@ -91,8 +119,10 @@ class Voucher extends Component {
         </td>
         <td>{this.props.seller}</td>
         <td>
-          <div>
-            {this.props.status === null ? this.getButtons() : this.props.status}
+          <div className="buttons-container">
+            {this.props.status === null
+               ? this.getButtons()
+               : this.getDisabledButton()}
           </div>
           {!this.props.isOpen ? null : <textarea />}
         </td>
