@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import { setVoucherStatus } from '../../actions';
+import { editVoucherNotes, setVoucherStatus } from '../../actions';
 import VoucherMainInfo from './VoucherMainInfo';
 
 const CURRENCY_AVAILABLE = ['GBP', 'US', 'EUR'];
@@ -26,7 +26,7 @@ class Voucher extends Component {
       seller: PropTypes.string.isRequired,
       created: PropTypes.number.isRequired,
       id: PropTypes.string.isRequired,
-      // notes: PropTypes.string.isRequired,
+      notes: PropTypes.string.isRequired,
       currency: PropTypes.oneOf(CURRENCY_AVAILABLE).isRequired,
       paper_voucher: PropTypes.bool.isRequired,
       // bulk_id: PropTypes.string.isRequired,
@@ -51,6 +51,7 @@ class Voucher extends Component {
 
     this.getButtons = this.getButtons.bind(this);
     this.getDisabledButton = this.getDisabledButton.bind(this);
+    this.changeVoucherNotes = this.changeVoucherNotes.bind(this);
   }
 
   getButtons() {
@@ -86,6 +87,10 @@ class Voucher extends Component {
   setVoucherStatus(e, status) {
     e.preventDefault();
     this.props.dispatch(setVoucherStatus(this.props.id, status ? 'Active' : 'Decline'));
+  }
+
+  changeVoucherNotes(e) {
+    this.props.dispatch(editVoucherNotes(this.props.id, e.target.value));
   }
 
   render() {
@@ -124,7 +129,12 @@ class Voucher extends Component {
                ? this.getButtons()
                : this.getDisabledButton()}
           </div>
-          {!this.props.isOpen ? null : <textarea />}
+          {!this.props.isOpen
+            ? null
+            : <textarea
+              onChange={this.changeVoucherNotes}
+              defaultValue={this.props.notes}
+            />}
         </td>
       </tr>
     );
