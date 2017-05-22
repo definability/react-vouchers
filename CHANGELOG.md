@@ -5,10 +5,16 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [0.0.3]
-- Added styles.
-- Added SVG buttons.
+
+### Added
+- Styles.
+- SVG buttons.
+
+### Fixed
+- Lost `file-loader` dependency in `package.json`.
 
 ## [0.0.2]
+
 ### Added
 - Vouchers fetch function.
 - Vouchers table.
@@ -16,6 +22,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Vouchers patch in `Reducer`.
 
 ## 0.0.1 - 2017-05-18
+
 ### Added
 - `WebPack` configuration files.
 - `Component`s with `Router`.
