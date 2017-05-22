@@ -6,7 +6,7 @@ import '../styles/main.scss';
 
 import Home from './Home';
 import Container from './Container';
-import Detailed from './Detailed';
+import Detailed from './voucher/Detailed';
 
 class Application extends React.Component {
   render() {
@@ -17,7 +17,7 @@ class Application extends React.Component {
             component={Home}
           />
           <Route
-            path="/details"
+            path="/:id"
             component={Detailed}
           />
         </Route>
