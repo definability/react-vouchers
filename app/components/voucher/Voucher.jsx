@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router';
 
 import { editVoucherNotes, setVoucherStatus } from '../../actions';
 import VoucherMainInfo from './VoucherMainInfo';
@@ -109,7 +110,9 @@ class Voucher extends Component {
           onClick={this.props.onClick}
         />
         <td>
-          <button className="edit" />
+          <Link to={`/${this.props.id}`}>
+            <button className="edit" />
+          </Link>
         </td>
         <td className="face-value">
           {this.props.face_value / 100}{currencySign}
