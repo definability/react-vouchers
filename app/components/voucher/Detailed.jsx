@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import VoucherForm from './voucher/VoucherForm';
-import { fetchVoucher } from '../actions';
+import VoucherForm from './VoucherForm';
+import { fetchVoucher } from '../../actions';
 
 class Detailed extends Component {
   static propTypes() {
