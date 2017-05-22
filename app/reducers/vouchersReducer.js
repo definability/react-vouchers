@@ -4,7 +4,8 @@ const initialState = Object.freeze({
   vouchers: [],
 });
 
-const EDITABLE_KEYS = ['brand_name', 'cvv', 'notes', 'seller', 'serial_number', 'status'];
+const EDITABLE_KEYS = ['brand_name', 'cvv', 'notes', 'paper_voucher',
+  'seller', 'serial_number', 'status'];
 
 function replaceVoucher(vouchers, voucherIndex, vaucherPatch) {
   return voucherIndex === -1
@@ -19,11 +20,14 @@ function isNotEditable(voucher, key) {
 }
 
 function editVoucher(voucher, newValues) {
-  const acceptedNewValues = Object.keys(newValues)
+  const values = 'paper_voucher' in newValues && 'paper_voucher' in newValues
+    ? Object.assign({}, newValues, { cvv: null })
+    : newValues;
+  const acceptedNewValues = Object.keys(values)
     .reduce((acc, key) => (isNotEditable(voucher, key)
       ? acc
-      : Object.assign(acc, { [key]: newValues[key] })
-    ));
+      : Object.assign(acc, { [key]: values[key] })
+    ), {});
   return Object.assign({}, voucher, acceptedNewValues);
 }
 
@@ -38,13 +42,25 @@ function editAndReplaceVoucher(vouchers, vaucherPatch) {
 export default (state = initialState, action) => {
   switch (action.type) {
     case `${ACTIONS.FETCH_VOUCHERS}_FULFILLED`:
-      return {
+      return Object.assign({}, state, {
         vouchers: action.payload,
-      };
+      });
+    case `${ACTIONS.FETCH_VOUCHER}_FULFILLED`:
+      return Object.assign({}, state, {
+        voucher: action.payload,
+      });
     case ACTIONS.EDIT_VOUCHER:
-      return {
+      return Object.assign({}, state, {
         vouchers: editAndReplaceVoucher(state.vouchers, action.payload),
-      };
+      });
+    case ACTIONS.EDIT_VOUCHER_LOCALLY:
+      if (action.payload.id !== state.voucher.id) {
+        return state;
+      }
+      console.log(action.payload, 'Edited', editVoucher(state.voucher, action.payload));
+      return Object.assign({}, state, {
+        voucher: editVoucher(state.voucher, action.payload),
+      });
     default:
       return state;
   }
