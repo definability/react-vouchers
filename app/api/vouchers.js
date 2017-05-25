@@ -17,12 +17,12 @@ function generateVoucher(index = Math.round(Math.random() * Number.MAX_SAFE_INTE
     created: +faker.date.past(),
     id: faker.random.uuid(),
     notes: faker.lorem.sentence(),
-    currency: ['GBP', 'US', 'EUR'][Math.floor(Math.random() * 2.99)],
+    currency: faker.helpers.randomize(['GBP', 'US', 'EUR']),
     paper_voucher: isPaperVoucher,
     bulk_id: faker.random.uuid(),
     invoice_number: faker.random.uuid(),
     order_number: index,
-    status: [null, 'Active', 'Decline'][Math.floor(Math.random() * 2.99)],
+    status: faker.helpers.randomize([null, 'Active', 'Decline']),
   };
 }
 
