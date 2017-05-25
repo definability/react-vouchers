@@ -2,8 +2,7 @@ const path = require('path');
 const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
-module.exports = {
-  devtool: 'inline-souce-map',
+module.exports = Object.assign({
   context: path.join(__dirname, 'app'),
   entry: {
     main: './index',
@@ -61,4 +60,6 @@ module.exports = {
       path.resolve('node_modules'),
     ],
   }
-};
+}, process.env.NODE_ENV === 'development' ? {
+  devtool: 'inline-souce-map',
+} : {});
