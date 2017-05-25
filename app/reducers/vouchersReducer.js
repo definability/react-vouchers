@@ -8,7 +8,7 @@ const EDITABLE_KEYS = ['brand_name', 'cvv', 'notes', 'paper_voucher',
   'seller', 'serial_number', 'status'];
 
 function replaceVoucher(vouchers, voucherIndex, vaucherPatch) {
-  return voucherIndex === -1
+  return voucherIndex === -1 || typeof voucherIndex !== 'number'
     ? vouchers
     : Object.assign([], vouchers, { [voucherIndex]: vaucherPatch });
 }
