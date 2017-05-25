@@ -6,6 +6,7 @@ export const ACTIONS = Object.freeze({
   FETCH_VOUCHERS: 'FETCH_VOUCHERS',
   FETCH_VOUCHER: 'FETCH_VOUCHER',
   OPEN_VOUCHER: 'OPEN_VOUCHER',
+  SAVE_VOUCHER_CHANGES: 'SAVE_VOUCHER_CHANGES',
 });
 
 export const fetchVouchers = () => ({
@@ -46,4 +47,9 @@ export const editVoucher = (id, key, value) => ({
 export const editVoucherLocally = (id, key, value) => ({
   type: ACTIONS.EDIT_VOUCHER_LOCALLY,
   payload: { id, [key]: value },
+});
+
+export const saveVoucherChanges = voucher => ({
+  type: ACTIONS.SAVE_VOUCHER_CHANGES,
+  payload: vouchersFetcher.post(voucher),
 });
