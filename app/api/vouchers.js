@@ -1,7 +1,5 @@
 import faker from 'faker';
 
-let vouchers = [];
-
 function generateVoucher(index = Math.round(Math.random() * Number.MAX_SAFE_INTEGER)) {
   const isPaperVoucher = Math.random() < 0.5;
   const faceValue = Math.round((Math.random() + 1) * 10000);
@@ -32,11 +30,22 @@ function generateVouchers(n = 10, current = 0) {
   return n <= 0 ? [] : generateVouchers(n - 1, current + 1).concat(generateVoucher(current));
 }
 
+const vouchers = generateVouchers(Math.round(Math.random() * 20));
+
 export default {
-  get() {
-    if (vouchers.length === 0) {
-      vouchers = generateVouchers(Math.round(Math.random() * 20));
+  get(id = null) {
+    if (!id) {
+      return Promise.resolve(vouchers);
     }
-    return Promise.resolve(vouchers);
+    const voucher = vouchers.find(item => item.id === id);
+    return voucher ? Promise.resolve(voucher) : Promise.reject();
+  },
+  post(voucher = {}) {
+    const voucherIndex = vouchers.findIndex(item => item.id === voucher.id);
+    if (voucherIndex === -1) {
+      return Promise.reject();
+    }
+    vouchers[voucherIndex] = voucher;
+    return Promise.resolve();
   },
 };

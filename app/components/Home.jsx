@@ -54,7 +54,7 @@ class Home extends Component {
 
   render() {
     return (
-      <table cellSpacing="0" cellPadding="0">
+      <table cellSpacing="0" cellPadding="0" className="vouchers">
         <thead>
           <tr>
             <th className="voucher-main-info">Info</th>
