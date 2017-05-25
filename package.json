@@ -1,6 +1,6 @@
 {
   "name": "react-vouchers",
-  "version": "0.0.3",
+  "version": "0.1.0",
   "description": "Simple ReactJS+Redux SPA",
   "scripts": {
     "build": "NODE_ENV=production webpack",
