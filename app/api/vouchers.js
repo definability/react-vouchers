@@ -40,4 +40,12 @@ export default {
     const voucher = vouchers.find(item => item.id === id);
     return voucher ? Promise.resolve(voucher) : Promise.reject();
   },
+  post(voucher = {}) {
+    const voucherIndex = vouchers.findIndex(item => item.id === voucher.id);
+    if (voucherIndex === -1) {
+      return Promise.reject();
+    }
+    vouchers[voucherIndex] = voucher;
+    return Promise.resolve();
+  },
 };
