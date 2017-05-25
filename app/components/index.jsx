@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { IndexRoute, Route, Router, hashHistory } from 'react-router';
+import { IndexRoute, Route, Router, browserHistory } from 'react-router';
 
 import '../styles/main.scss';
 
@@ -11,7 +11,7 @@ import Detailed from './voucher/Detailed';
 class Application extends React.Component {
   render() {
     return (
-      <Router history={hashHistory}>
+      <Router history={browserHistory}>
         <Route path="/" component={Container}>
           <IndexRoute
             component={Home}
