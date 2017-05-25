@@ -57,9 +57,12 @@ export default (state = initialState, action) => {
       if (action.payload.id !== state.voucher.id) {
         return state;
       }
-      console.log(action.payload, 'Edited', editVoucher(state.voucher, action.payload));
       return Object.assign({}, state, {
         voucher: editVoucher(state.voucher, action.payload),
+      });
+    case ACTIONS.SAVE_VOUCHER_CHANGES:
+      return Object.assign({}, state, {
+        voucher: {},
       });
     default:
       return state;
