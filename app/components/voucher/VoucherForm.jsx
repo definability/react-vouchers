@@ -26,7 +26,7 @@ const FORM_STRUCTURE = Object.freeze([{
   name: 'CVV',
   key: 'cvv',
   type: 'text',
-  readonly: false,
+  readonly: voucher => !!voucher.paper_voucher,
 }, {
   name: 'Bulk Id',
   key: 'bulk_id',
@@ -48,6 +48,15 @@ const FORM_STRUCTURE = Object.freeze([{
   type: 'text',
   readonly: false,
 }]);
+
+function getFieldValue(voucher, key) {
+  if (typeof voucher[key] === 'string' || typeof voucher[key] === 'number') {
+    return voucher[key].toString();
+  } else if (typeof voucher[key] === 'boolean') {
+    return voucher[key];
+  }
+  return '';
+}
 
 class Voucher extends Component {
   static get propTypes() {
@@ -86,22 +95,24 @@ class Voucher extends Component {
     const voucher = this.props.voucher;
     const changeValue = newValue =>
       this.props.dispatch(editVoucherLocally(this.props.voucher.id, fieldStructure.key, newValue));
+    const value = getFieldValue(voucher, fieldStructure.key);
 
     switch (fieldStructure.type) {
       case 'text':
         return (<input
           type="text"
           id={fieldStructure.name}
-          readOnly={!!fieldStructure.readonly}
-          value={typeof voucher[fieldStructure.key] === 'string'
-            ? voucher[fieldStructure.key] : ''}
+          readOnly={typeof fieldStructure.readonly === 'function'
+                    ? fieldStructure.readonly(voucher)
+                    : !!fieldStructure.readonly}
+          value={value}
           onChange={e => changeValue(e.target.value)}
         />);
       case 'checkbox':
         return (<input
           type="checkbox"
           id={fieldStructure.name}
-          checked={!!voucher[fieldStructure.key]}
+          checked={!!value}
           onChange={() => changeValue(!voucher[fieldStructure.key])}
         />);
       default:
