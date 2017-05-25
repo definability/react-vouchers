@@ -1,0 +1,31 @@
+form.detailed {
+  display: flex;
+  width: 1100px;
+  margin: 0 auto;
+  fieldset {
+    margin: 0;
+    padding: 0;
+    border: 0;
+  }
+  p {
+    display: flex;
+    label {
+      order: 1;
+      width: 150px;
+      font-weight: bold;
+    }
+    input {
+      order: 2;
+      &[type="checkbox"] {
+        margin: 3px 3px;
+      }
+      &[type="text"] {
+        margin: 0 3px;
+        &:read-only {
+          border: 0;
+          width: 400px;
+        }
+      }
+    }
+  }
+}
