@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router';
 
-import { editVoucherLocally } from '../../actions';
+import { editVoucherLocally, saveVoucherChanges } from '../../actions';
 
 const FORM_STRUCTURE = Object.freeze([{
   name: 'Owner',
@@ -131,8 +132,25 @@ class Voucher extends Component {
 
   render() {
     return (
-      <form>
-        {this.getFields()}
+      <form className="detailed">
+        <fieldset>
+          {this.getFields()}
+        </fieldset>
+        <fieldset className="buttons-container">
+          <Link to="/">
+            <button
+              className="active"
+              onClick={() => {
+                this.props.dispatch(saveVoucherChanges(this.props.voucher));
+              }}
+            >
+              Save
+            </button>
+          </Link>
+          <Link to="/">
+            <button className="decline">Back</button>
+          </Link>
+        </fieldset>
       </form>
     );
   }
